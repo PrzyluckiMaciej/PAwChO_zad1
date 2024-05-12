@@ -14,4 +14,7 @@ Weryfikacja zbudowanego obrazu: <br />
 Zrzut ekranu z platformy Docker Scout. Nie wykryto podatności na poziomie krytycznym lub wysokim. <br />
 <img src="screenshots/scout.png"/>
 <br /><br />
+Warstwy wykorzystujące dane cache w trakcie budowy: <br />
+<img src="screenshots/cache.png"/>
+<br /><br />
 <a href="https://hub.docker.com/repository/docker/przyluckimaciej/labx/general">Link do repozytorium na Docker Hub</a>
