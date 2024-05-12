@@ -20,5 +20,4 @@ Weryfikacja działania aplikacji: <br />
 <img src="screenshots/healthcheck.png">
 <br /><br />
 Zrzut ekranu z okna przeglądarki: <br />
-(Data wyświetlana jest w formacie amerykańskim) <br />
 <img src="screenshots/browser.png">
