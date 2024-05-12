@@ -2,21 +2,23 @@ FROM scratch AS build1
 LABEL maintainer="Maciej Przyłucki"
 # import struktury alpine do obrazu scratch
 ADD alpine-minirootfs-3.19.1-x86_64.tar /
-# dodanie argumentu i przypisanie go do zmiennej środowiskowej
+# dodanie argumentu i przypisanie go do zmiennej środowiskowej, wartość domyślna to "latest"
 ARG BASE_VERSION
 ENV APP_VERSION=${BASE_VERSION:-latest}
 # dodanie pakietu nodejs npm
 RUN apk add --update nodejs npm && \
     rm -rf /var/cache/apk/*
 WORKDIR /app
-# skopiowanie aplikacji serwera dofolderu /app
+# skopiowanie aplikacji serwera do folderu /app
 COPY src ./
 RUN npm install
 
-
+# syntax=docker/dockerfile:1
 FROM nginx:alpine
 ARG BASE_VERSION
 ENV APP_VERSION=${BASE_VERSION:-latest}
+# zawarcie sekretnego pliku
+RUN --mount=type=secret,id=mysecret,dst=/hidden.txt
 # skopiowanie pliku konfiguracyjnego nginx z odpowiednimi ustawieniami
 COPY nginx.conf /etc/nginx/nginx.conf
 WORKDIR /usr/share/nginx/html

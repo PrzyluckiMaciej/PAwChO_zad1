@@ -11,13 +11,9 @@ app.get("/", (req, res) => {
       //console.log(timeZone);
 
       //określenie daty i godziny na podstawie strefy czasowej
-      const date = new Date().toLocaleDateString("en-US", {
+      const datetime = new Date().toLocaleDateString("en-GB", {
         timeZone: timeZone,
       });
-      const time = new Date().toLocaleTimeString("en-US", {
-        timeZone: timeZone,
-      });
-      datetime = date + ", " + time;
 
       //wyświetlenie adresu IP, daty i czasu
       res.send("IP: " + ip + "<br>" + "Data i czas: " + datetime);
